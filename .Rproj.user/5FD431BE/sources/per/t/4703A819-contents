@@ -1,0 +1,15 @@
+---
+title: "03/反証可能性"
+modified-date: today
+format: html
+abstract:
+  科学の条件としての「反証可能性」概念を学び、政治に関する巷説の科学性を判別できるようになるとともに、自ら科学的な因果推論を組み立てられることを目指す。
+---
+
+### 準備学習
+- [ ] 【事前】教科書（久米2章）を読む。
+- [ ] 【事後】授業資料を見直し、目標到達をセルフチェック
+- [ ] 【事後】WebClass上でのリアクションペーパー入力（金曜日まで）
+
+### スライド
+{{< revealjs file="03_falsifiability_slide.html" height="900px" class="ratio ratio-4x3" full-screen-link="true">}}

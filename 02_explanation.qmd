@@ -1,0 +1,16 @@
+---
+title: "02/説明とは何か"
+modified-date: today
+format: html
+abstract:
+  因果関係を推論する営為としての「説明」についての枠組みを身につける。因果関係が満たすべき3要件を学び、自分で因果関係に関する推論を組み立てられることを目指す。
+---
+
+### 準備学習
+- [ ] 【事前】教科書（久米序章、1章）を読む。
+- [ ] 【事後】授業資料を見直し、目標到達をセルフチェック
+- [ ] 【事後】WebClass上でのリアクションペーパー入力（金曜日まで）
+
+### スライド
+
+{{< revealjs file="02_explanation_slide.html" height="900px" class="ratio ratio-4x3" full-screen-link="true">}}

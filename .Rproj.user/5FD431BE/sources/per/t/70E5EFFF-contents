@@ -1,0 +1,15 @@
+---
+title: "04/説明と一般化"
+modified-date: today
+format: html
+abstract:
+  因果推論について個別的説明と一般的説明の区別を捉えた上で、個別的説明を一般化することの意義と課題を説明できるようになることを目指す。また、抽象的な概念を測定する方法についても理解する。
+---
+
+### 準備学習
+- [ ] 【事前】教科書（久米3章）を読む。
+- [ ] 【事後】授業資料を見直し、目標到達をセルフチェック
+- [ ] 【事後】WebClass上でのリアクションペーパー入力（金曜日まで）
+
+### スライド
+{{< revealjs file="04_generalization_slide.html" height="900px" class="ratio ratio-4x3" full-screen-link="true">}}

@@ -1,0 +1,32 @@
+{
+  "index.qmd": {
+    "index.html": "349b0b42"
+  },
+  "00_syllabus.qmd": {
+    "00_syllabus.html": "e2738b48"
+  },
+  "01_intro_slide.qmd": {
+    "01_intro_slide.html": "08289834"
+  },
+  "01_intro.qmd": {
+    "01_intro.html": "8be10e0d"
+  },
+  "02_explanation.qmd": {
+    "02_explanation.html": "876bd436"
+  },
+  "02_explanation_slide.qmd": {
+    "02_explanation_slide.html": "c2eb99ce"
+  },
+  "03_falsifiability.qmd": {
+    "03_falsifiability.html": "f07cf80b"
+  },
+  "03_falsifiability_slide.qmd": {
+    "03_falsifiability_slide.html": "abd793ed"
+  },
+  "04_generalization.qmd": {
+    "04_generalization.html": "04a06c64"
+  },
+  "04_generalization_slide.qmd": {
+    "04_generalization_slide.html": "f82b4acf"
+  }
+}
