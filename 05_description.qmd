@@ -1,0 +1,21 @@
+---
+title: "05/推論としての記述"
+modified-date: today
+format: html
+abstract:
+  因果推論の前提となる「記述」について根本的に考える。記述を歪める誤差とバイアスについて検討するとともに、計量的手法や質的手法に潜む記述の問題を考察できるようになることを目指す。
+---
+
+### 準備学習
+- [ ] 【事前】教科書（久米4章）を読む。
+- [ ] 【事後】授業資料を見直し、目標到達をセルフチェック
+- [ ] 【事後】WebClass上でのリアクションペーパー入力（金曜日まで）
+- [ ] 【事後・任意】補足ビデオ「大数の法則と中心極限定理」の視聴（WebClass上）
+- [ ] 【事後・任意】筒井淳也「[『日本はジェンダーギャップ125位』をそのまま受け取ってはいけない…『指数』が反映しきれない現実の世界](https://president.jp/articles/-/71137)」を読む
+
+
+### スライド：授業用
+{{< revealjs file="05_description_slide.html" height="900px" class="ratio ratio-4x3" full-screen-link="true">}}
+
+### スライド：補足ビデオ用
+{{< revealjs file="05_LLN_and_CLT.html" height="900px" class="ratio ratio-4x3" full-screen-link="true">}}

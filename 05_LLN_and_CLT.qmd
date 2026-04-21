@@ -1,0 +1,133 @@
+---
+title: "05/大数の法則と中心極限定理"
+date: 2026/5/19
+
+modified-date: today
+
+format: 
+  revealjs:
+    footer: "LLNとCLT"
+    mermaid:
+      theme: neutral
+
+metadata-files: 
+  - "style/slide.yml"
+---
+
+
+```{r set-up}
+set.seed(19940309) # Someone's birthday
+pacman::p_load(tidyverse) # Load the package(s)
+theme_set(theme_bw()) # Set ggplot theme
+```
+
+## 推測統計学
+サンプルの性質から母集団の性質を推測する際に用いられる統計学の方法
+
+::: {.fragment .fade-in}
+ランダムサンプリングがなされている場合、サンプルサイズを大きくすれば母集団の性質に近づける
+
+::: {.incremental}
+- **大数の法則** (Law of Large Numbers: LLN)
+- **中心極限定理** (Central Limit Theorem: CLT)
+
+:::
+:::
+
+::: {.fragment .fade-in}
+以下の設定を考えてみましょう
+
+::: {.incremental}
+- 10万人のA国民
+- A国民の間の内閣支持率は**60%＝母平均**
+- 一部のサンプルを取り出して母平均を推定したい
+
+:::
+:::
+
+## 大数の法則 (LLN)
+サンプルサイズを増やせばサンプル平均は母平均に近づく
+
+::: {.fragment .fade-in}
+サイズを徐々に増やしてサンプルを抽出してみる
+
+- 100人から2万人まで50人ずつ増やす
+:::
+
+::: {.fragment .fade-in}
+```{r LLN}
+# Generate the population
+pop_size <- 100000 # Population size
+pop_prob <- 0.6 # Population probability
+
+pop <- rbinom(pop_size, 1, pop_prob)
+
+# Sample from the population
+sample_size <- c(seq(100, 20000, by = 50))
+
+
+est_prob <- NULL
+for (n_sample in 1:length(sample_size)) {
+  est_prob <- c(est_prob,
+                   pop %>%
+                     sample(size = sample_size[n_sample]) %>%
+                     mean())
+}
+
+# Construct the data frame for visualization 
+df_LLN <- tibble(sample_size = sample_size,
+             est_prob    = est_prob)
+
+# Visualize the estimated probabilities
+df_LLN %>% 
+  ggplot(aes(x = sample_size,
+             y = est_prob)) +
+  geom_line() +
+  geom_hline(yintercept = 0.6, colour = "red") +
+  labs(x = "サンプルサイズ",
+       y = "推定支持率")
+
+```
+
+:::
+
+## 中心極限定理 (CLT)
+
+サンプル平均は母平均のまわりに正規分布し、サンプルサイズが大きくなるほどばらつきは小さくなる
+
+::: {.fragment .fade-in}
+100人、500人、1000人と3つのパターンでサンプルを1000個ずつ抽出し、サンプル平均の分布をみてみると…
+
+:::
+
+::: {.fragment .fade-in}
+```{r CLT}
+# Setting for multiple sampling
+sampling_n <- 1000 # Number of sampling/samples
+sample_size2 <- c(100, 1000, 5000) # Vary with sample size
+
+# Generate the sample means
+sample_mean <- NULL
+for (i in 1:length(sample_size2)) {
+  sample_mean_store <- replicate(sampling_n,
+              sample(pop, size = sample_size2[i]) %>%
+                               mean())
+  sample_mean <- c(sample_mean, sample_mean_store)
+
+}
+
+# Visualize the distribution of the sample means
+df_CLT <- tibble(
+  sample_size = rep(sample_size2, each = sampling_n),
+  sample_mean = sample_mean
+)
+
+df_CLT %>% 
+  ggplot(aes(x = sample_mean)) +
+  geom_density(aes(colour = factor(sample_size))) +
+  labs(x = "サンプル平均",
+       y = "確率密度",
+       colour = "サンプルサイズ")
+```
+
+:::
