@@ -31,6 +31,9 @@ website:
         - text: "05/推論としての記述"
           href: 05_description.qmd
       - section: 因果関係
+        contents: 
+        - text: "06/共変関係"
+          href: 06_covariation.qmd
       - section: 事例分析
       - section: 政治学と方法論
       - section: グループワーク

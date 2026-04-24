@@ -10,8 +10,8 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="鈴木淳平">
-  <meta name="dcterms.date" content="2026-05-19">
-  <title>現代政治分析入門1@駒大2026 – 05/大数の法則と中心極限定理</title>
+  <meta name="dcterms.date" content="2026-05-26">
+  <title>現代政治分析入門1@駒大2026 – 06/共変関係</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -131,7 +131,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">05/大数の法則と中心極限定理</h1>
+  <h1 class="title">06/共変関係</h1>
   <p class="subtitle">現代政治分析入門1</p>
 
 <div class="quarto-title-authors">
@@ -148,73 +148,426 @@
     </div>
 </div>
 
-  <p class="date">2026-05-19</p>
+  <p class="date">2026-05-26</p>
 </section>
-<section id="推測統計学" class="slide level2">
-<h2>推測統計学</h2>
-<p>サンプルの性質から母集団の性質を推測する際に用いられる統計学の方法</p>
+<section id="出席登録をお願いします" class="slide level2">
+<h2>出席登録をお願いします</h2>
+<p><img data-src="figs/attendance_webclass.png"></p>
+</section>
+<section id="今日の目次" class="slide level2">
+<h2>今日の目次</h2>
+<ol type="1">
+<li>はじめに</li>
+<li>共変関係とは何か</li>
+<li>統計的仮説検定</li>
+<li>共変関係の検証方法</li>
+<li>反証主義</li>
+<li>まとめ</li>
+</ol>
+</section>
+<section>
+<section id="はじめに" class="title-slide slide level1 center">
+<h1>はじめに</h1>
+
+</section>
+<section id="先週のrpより" class="slide level2">
+<h2>先週のRPより</h2>
+<p>TBD</p>
+</section>
+<section id="本日の目的と到達目標" class="slide level2">
+<h2>本日の目的と到達目標</h2>
+<div style="font-size: 0.9em;">
+<h4 id="目的">目的</h4>
+<p>因果関係が満たすべき要件の1つである「共変関係」について改めて考える。統計的仮説検定を学んだ上で、共変関係を適切に検証できるようになるための知識を習得する。また、科学哲学における反証主義という考え方を知り、統計的仮説検定そして反証可能性の知的背景を理解する。</p>
 <div class="fragment fade-in">
-<p>ランダムサンプリングがなされている場合、サンプルサイズを大きくすれば母集団の性質に近づける</p>
+<h4 id="到達目標">到達目標</h4>
+<ol type="1">
+<li>「変数の値の変化」を意識しつつ共変関係の具体例を作ることができる。</li>
+<li>具体例を用いながら、統計的仮説検定とは何かを説明できる。</li>
+<li>変数の種類や共変関係のパターンに応じて適切な分析の方法を選択できる。</li>
+<li>「帰納」という言葉を用いて科学哲学における反証主義の議論を説明できる。</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="本日の授業の位置付け" class="slide level2">
+<h2>本日の授業の位置付け</h2>
+<p><img data-src="figs/graphic_syllabus_icpa1.png"></p>
+</section></section>
+<section>
+<section id="共変関係とは何か" class="title-slide slide level1 center">
+<h1>共変関係とは何か</h1>
+
+</section>
+<section id="復習因果関係の3条件" class="slide level2">
+<h2>復習：因果関係の3条件</h2>
+<div class="fragment fade-in">
+<ol type="1">
+<li><strong>共変関係</strong></li>
+<li>原因の時間的先行</li>
+<li>他の変数の統制</li>
+</ol>
+</div>
+</section>
+<section id="共変関係" class="slide level2">
+<h2>共変関係</h2>
+<p><strong>独立変数</strong>の値の変化と<strong>従属変数</strong>の値の変化が同時に生じていること</p>
 <ul>
-<li class="fragment"><strong>大数の法則</strong> (Law of Large Numbers: LLN)</li>
-<li class="fragment"><strong>中心極限定理</strong> (Central Limit Theorem: CLT)</li>
+<li class="fragment">「<strong>値の変化</strong>」が生じている必要
+<ul>
+<li class="fragment">例：洋画を見る時間<strong>増</strong>→TOEICの成績<strong>上昇</strong></li>
+<li class="fragment">例：身長が<strong>高い</strong>→収入が<strong>多い</strong></li>
+</ul></li>
+<li class="fragment">比較と共変関係
+<ul>
+<li class="fragment">例：大学生の基礎学力→比較がない</li>
+<li class="fragment">例：国際学力調査→比較があやしい</li>
+</ul></li>
+</ul>
+</section>
+<section id="因果変数共変関係" class="slide level2">
+<h2>因果、変数、共変関係</h2>
+<ul>
+<li class="fragment">仮説「森林伐採が地球温暖化を引き起こしている」</li>
+<li class="fragment">原因：<strong>森林伐採</strong>→結果：<strong>地球温暖化</strong></li>
+<li class="fragment">独立変数：<strong>森林面積</strong>→従属変数：<strong>地球の気温</strong></li>
+<li class="fragment">共変関係「森林面積が<strong>減る</strong>→地球の気温の<strong>上昇</strong>」</li>
+</ul>
+</section>
+<section id="think-pair-share--10分" class="slide level2">
+<h2>Think-pair-share (-10分)</h2>
+<ol type="1">
+<li><strong>Think</strong> (3-4分)…ワークシート上で次の作業
+<ul>
+<li>因果関係をめぐる仮説を作る
+<ul>
+<li>第2回のものを再利用可</li>
+</ul></li>
+<li>この仮説の独立変数／従属変数は？
+<ul>
+<li>原因結果を「変数」に置き換える</li>
+</ul></li>
+<li>共変関係はどうなっている？
+<ul>
+<li>独立変数の値がどう変化→従属変数の値はどう変化？</li>
+</ul></li>
+</ul></li>
+<li><strong>Pair</strong> (2-3分)…ペアで共有</li>
+<li><strong>Share</strong> (1-2分)…全体に共有（<a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=6b495101b34e738a4b0645accbf80f1c">WebClassチャット</a>）</li>
+</ol>
+<img data-src="figs/06_covariation_chatQR.png" class="r-stretch">
+</section></section>
+<section>
+<section id="統計的仮説検定" class="title-slide slide level1 center">
+<h1>統計的仮説検定</h1>
+
+</section>
+<section id="アンケート" class="slide level2">
+<h2>アンケート</h2>
+<p>超能力者を自称する男が現れて、「このコインに念力をかけて、表を出しやすくした」と言ってきました。</p>
+<div class="fragment fade-in">
+<p>あなたはそれが本当か確かめるために、1000回このコインを投げてみることにしました。</p>
+</div>
+<div class="fragment fade-in">
+<p>何回以上表が出たら念力の存在を信じますか。</p>
+</div>
+<div class="fragment fade-in">
+<ol type="1">
+<li>550回以上</li>
+<li>700回以上</li>
+<li>900回以上</li>
+</ol>
+</div>
+<div class="fragment fade-in">
+<p><a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=f0d60ce05ab5c70121e716e25a83bb90&amp;page=1">WebClassアンケート</a>で回答してください</p>
+<img data-src="figs/06_covariation_survey1QR.png" class="r-stretch">
+</div>
+</section>
+<section id="統計的仮説検定-1" class="slide level2">
+<h2>統計的仮説検定</h2>
+<h4 id="statistical-hypothesis-testing">statistical hypothesis testing</h4>
+<p>「その出来事は偶然発生したのか否か」を判別する思考枠組み</p>
+<div class="fragment fade-in">
+<p>仮説検定の手順：</p>
+<ul>
+<li class="fragment"><strong>帰無仮説</strong> (null hypothesis)…「その出来事は偶然である」という仮説</li>
+<li class="fragment">帰無仮説が正しいとしたら、標本が得られる確率を計算</li>
+<li class="fragment">確率が低ければ、帰無仮説は間違っている（＝偶然ではない）とみなす
+<ul>
+<li class="fragment">通常1%、5%、10%が基準</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="コイン投げの例" class="slide level2">
+<h2>コイン投げの例</h2>
+<p>帰無仮説「表が出る確率は50%」のもとで1000回投げる</p>
+<div class="fragment fade-in">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="06_covariation_slide_files/figure-revealjs/coin-toss-1.png" class="quarto-figure quarto-figure-center" width="1800"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<aside class="notes">
+<p>二項分布から算出</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
+<section>
+<section id="共変関係の検証方法" class="title-slide slide level1 center">
+<h1>共変関係の検証方法</h1>
+
+</section>
+<section id="変数の分類" class="slide level2">
+<h2>変数の分類</h2>
+<div class="fragment fade-in">
+<p><strong>カテゴリ変数</strong>…「どのカテゴリに分類されるか」を表す変数</p>
+<ul>
+<li>性別、学歴、支持政党…</li>
 </ul>
 </div>
 <div class="fragment fade-in">
-<p>以下の設定を考えてみましょう</p>
+<p><strong>連続変数</strong>…連続した値を持つ変数</p>
 <ul>
-<li class="fragment"><strong>母集団</strong>＝10万人のA国民</li>
-<li class="fragment">A国民の間の内閣支持率は<strong>60%</strong>（<strong>母平均</strong>）</li>
-<li class="fragment">一部のサンプルを取り出して母平均を推定したい</li>
+<li>身長、体重、所得…</li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<p>変数の組み合わせと検証方法</p>
+<ol type="1">
+<li class="fragment">カテゴリ×カテゴリ…クロス表の作成、カイ二乗検定</li>
+<li class="fragment">カテゴリ×連続…平均値の比較、t検定</li>
+<li class="fragment">連続×連続…散布図、相関係数、t検定</li>
+</ol>
+</div>
+</section>
+<section id="カテゴリカテゴリ" class="slide level2">
+<h2>カテゴリ×カテゴリ</h2>
+<div class="fragment fade-in">
+<p><strong>クロス表</strong>を作成し、<strong>カイ二乗(<span class="math inline">\(\chi^2\)</span>)検定</strong></p>
+</div>
+<div class="fragment fade-in">
+<p>例：「与党を支持するかどうか」と「内閣を支持するかどうか」に共変関係はあるか？</p>
+</div>
+<div class="fragment fade-in">
+<table class="caption-top">
+<colgroup>
+<col style="width: 40%">
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td style="text-align: center;"><strong>内閣支持</strong></td>
+<td style="text-align: center;"><strong>内閣不支持</strong></td>
+<td style="text-align: center;"><strong>合計</strong></td>
+</tr>
+<tr class="even">
+<td><strong>与党支持者</strong></td>
+<td style="text-align: center;">140 (70%)</td>
+<td style="text-align: center;">60 (30%)</td>
+<td style="text-align: center;">200 (100%)</td>
+</tr>
+<tr class="odd">
+<td><strong>野党支持者</strong></td>
+<td style="text-align: center;">30 (20%)</td>
+<td style="text-align: center;">120 (80%)</td>
+<td style="text-align: center;">150 (100%)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="fragment fade-in">
+<p>カイ二乗検定</p>
+<ul>
+<li class="fragment"><strong>帰無仮説</strong>「政党支持者間で内閣支持の確率は同じ」</li>
+<li class="fragment">この結果になる確率は<span class="math inline">\(2.2\times10^{-16}\approx0\)</span></li>
 </ul>
 </div>
 </section>
-<section id="大数の法則-lln" class="slide level2">
-<h2>大数の法則 (LLN)</h2>
-<p>サンプルサイズを増やせばサンプル平均は母平均に近づく</p>
-<div class="fragment fade-in">
-<p>サイズを徐々に増やしながらサンプルを抽出し、支持率を測定</p>
+<section id="カテゴリ連続" class="slide level2">
+<h2>カテゴリ×連続</h2>
+<div style="font-size: 0.8em;">
+<p><strong>平均値の比較</strong>と<strong>t検定</strong></p>
+<p>例：「与党を支持するかどうか」と「高市総理への感情温度」に差はあるか</p>
 <ul>
-<li>100人から2万人まで50人ずつ増やす</li>
+<li>高市総理に対する感情を0度（強い反感）から100度（強い好感）で回答</li>
 </ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="06_covariation_slide_files/figure-revealjs/thermo-1.png" class="quarto-figure quarto-figure-center" width="1800"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in">
+<p>t検定</p>
+<ul>
+<li class="fragment"><strong>帰無仮説</strong>「政党支持者間で平均感情温度は同じ」</li>
+<li class="fragment">この結果になる確率は<span class="math inline">\(2.2\times10^{-16}\approx0\)</span></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="連続連続" class="slide level2">
+<h2>連続×連続</h2>
+<div style="font-size: 0.8em;">
+<p>散布図、相関係数、t検定</p>
+<div class="fragment fade-in">
+<p>例：「経済的な豊かさ」と「民主主義の程度」には関連があるか</p>
 </div>
 <div class="fragment fade-in">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="05_LLN_and_CLT_files/figure-revealjs/LLN-1.png" class="quarto-figure quarto-figure-center" width="1800"></p>
+<p><img data-src="06_covariation_slide_files/figure-revealjs/scatter-1.png" class="quarto-figure quarto-figure-center" width="1800"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
+<div class="fragment fade-in">
+<p><strong>相関係数</strong>…2変数間の関連性の強さを表す指標</p>
+<ul>
+<li class="fragment">-1（右下がり）〜1（右上がり）の値を取る</li>
+<li class="fragment">一人当たりGDPと自由民主主義スコアの相関0.56</li>
+<li class="fragment">t検定＝「相関係数が0である」帰無仮説は棄却</li>
+</ul>
+</div>
+</div>
+</section></section>
+<section>
+<section id="反証主義" class="title-slide slide level1 center">
+<h1>反証主義</h1>
+
 </section>
-<section id="中心極限定理-clt" class="slide level2">
-<h2>中心極限定理 (CLT)</h2>
-<p>サンプル平均は母平均のまわりに<strong>正規分布</strong>し、サンプルサイズが大きくなるほどばらつきは小さくなる</p>
+<section id="演繹と帰納" class="slide level2">
+<h2>演繹と帰納</h2>
 <div class="fragment fade-in">
-<p>100人、500人、1000人と3つのパターンそれぞれでサンプルを1000個ずつ抽出し、サンプル平均の分布をみてみると…</p>
+<p><strong>演繹</strong> (deduction)…一般的な前提から個別的な推論を導く</p>
+<p><strong>帰納</strong> (induction)…個別的な前提から一般的な推論を導く</p>
 </div>
 <div class="fragment fade-in">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="05_LLN_and_CLT_files/figure-revealjs/CLT-1.png" class="quarto-figure quarto-figure-center" width="1800"></p>
-</figure>
+<p><strong>クイズ：</strong>以下の推論は演繹？帰納？</p>
+<ol type="1">
+<li>すべての人は死ぬ運命だから、私もいつか死ぬ。</li>
+<li>川口で移民が暴れ回っている。移民は危険に違いない。</li>
+<li>駒澤は仏教系の大学なので、この教室にいる人たちも仏教徒が多いだろう。</li>
+<li>中東の産油国は独裁国家が多い。資源を持っていると民主主義が育ちにくいのだろう。</li>
+</ol>
+</div>
+</section>
+<section id="帰納の正当化問題" class="slide level2">
+<h2>帰納の正当化問題</h2>
+<div class="columns">
+<div class="column" style="width:70%;">
+<p><strong>デイヴィッド・ヒューム</strong>の提起</p>
+<ul>
+<li class="fragment">演繹…前提が正しければ結論も常に正しい</li>
+<li class="fragment">帰納…前提が正しくても結論が常に正しいとは限らない</li>
+</ul>
+<div class="fragment fade-in">
+<p>仮説の検証と一般化</p>
+<ul>
+<li class="fragment">仮説と整合的な分析・実験結果が出た</li>
+<li class="fragment">他でも同じ結果が出るかどうかはわからない</li>
+</ul>
+</div>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:25%;">
+<p><img data-src="figs/David_Hume.jpg"> <strong>David Hume</strong></p>
+<p>(1711-76)</p>
+</div></div>
+</section>
+<section id="反証主義-1" class="slide level2">
+<h2>反証主義</h2>
+<div class="colmuns">
+<div class="column" style="width:70%;">
+<p><strong>カール・ポパー</strong>「仮説を確証することはできず、反証することしかできない」→<strong>反証可能性</strong></p>
+<div class="fragment fade-in">
+<p>統計的仮説検定の考え方</p>
+<ul>
+<li class="fragment">帰無仮説「偶然ではない」の反証</li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<p>批判：厳しすぎる</p>
+<ul>
+<li class="fragment">「偶然でないとは言えない」→だから何？</li>
+<li class="fragment">「偶然ではないから何かある」という飛躍の必要性</li>
+</ul>
+</div>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:25%;">
+<p><img data-src="figs/Karl_Popper.jpg"> <strong>Karl Popper</strong></p>
+<p>(1902-94)</p>
+</div></div>
+</section></section>
+<section>
+<section id="まとめ" class="title-slide slide level1 center">
+<h1>まとめ</h1>
+
+</section>
+<section id="本日の目的と到達目標-1" class="slide level2">
+<h2>本日の目的と到達目標</h2>
+<div style="font-size: 0.9em;">
+<h4 id="目的-1">目的</h4>
+<p>因果関係が満たすべき要件の1つである「共変関係」について改めて考える。統計的仮説検定を学んだ上で、共変関係を適切に検証できるようになるための知識を習得する。また、科学哲学における反証主義という考え方を知り、統計的仮説検定そして反証可能性の知的背景を理解する。</p>
+<div class="fragment fade-in">
+<h4 id="到達目標-1">到達目標</h4>
+<ol type="1">
+<li>「変数の値の変化」を意識しつつ共変関係の具体例を作ることができる。</li>
+<li>具体例を用いながら、統計的仮説検定とは何かを説明できる。</li>
+<li>変数の種類や共変関係のパターンに応じて適切な分析の方法を選択できる。</li>
+<li>「帰納」という言葉を用いて科学哲学における反証主義の議論を説明できる。</li>
+</ol>
 </div>
 </div>
+</section>
+<section id="次回までに" class="slide level2">
+<h2>次回までに</h2>
+<div class="fragment fade-in">
+<h4 id="事後学習">事後学習</h4>
+<ul>
+<li>授業資料を見直し、目標到達をセルフチェック</li>
+<li>WebClass 上でのリアクションペーパー入力（金曜日まで）</li>
+</ul>
 </div>
+<div class="fragment fade-in">
+<h4 id="事前学習">事前学習</h4>
+<ul>
+<li>教科書（久米6章）を読み、WebClass 上でのチェックフォーム記入</li>
+</ul>
 </div>
 
 
-</section>
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="figs/Komazawa_univ._logo.svg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>LLNとCLT</p>
+<p>共変関係</p>
 </div>
 </div></div>
 

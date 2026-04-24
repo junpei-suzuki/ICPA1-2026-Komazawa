@@ -14,8 +14,8 @@ abstract:
 - [ ] 【事後・任意】筒井淳也「[『日本はジェンダーギャップ125位』をそのまま受け取ってはいけない…『指数』が反映しきれない現実の世界](https://president.jp/articles/-/71137)」を読む
 
 
-### スライド：授業用
+### スライド①：授業用
 {{< revealjs file="05_description_slide.html" height="900px" class="ratio ratio-4x3" full-screen-link="true">}}
 
-### スライド：補足ビデオ用
+### スライド②：補足ビデオ用
 {{< revealjs file="05_LLN_and_CLT.html" height="900px" class="ratio ratio-4x3" full-screen-link="true">}}
