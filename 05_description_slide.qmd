@@ -79,11 +79,11 @@ TBD
 :::
 :::
 
-## 誤差 (error)
+## 測定誤差 (measurement error)
 真の値と観測値の間のずれ
 
 ::: {.fragment .fade-in}
-#### 2種類の誤差
+#### 2種類の測定誤差
 ::: {.incremental}
  - **確率的誤差** (stochastic error)…**偶然**によって生まれたずれ
  - **系統的誤差** (systematic error)…**特定の原因**によって生まれたずれ

@@ -34,6 +34,8 @@ website:
         contents: 
         - text: "06/共変関係"
           href: 06_covariation.qmd
+        - text: "07/原因の時間的先行"
+          href: 07_causalpriority.qmd
       - section: 事例分析
       - section: 政治学と方法論
       - section: グループワーク
