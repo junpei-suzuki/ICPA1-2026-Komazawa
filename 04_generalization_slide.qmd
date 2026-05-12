@@ -192,7 +192,7 @@ metadata-files:
 
 [WebClassアンケート](https://webclass.komazawa-u.ac.jp/webclass/login.php?id=b8b2ba11584d7082f08ea8d60f83f199&page=1)で回答してください（チャットとは別）。
 
-![](figs/04_generalization_surveyQR.png){width=30%}
+![](figs/04_generalization_surveyQR.png){width=25%}
 
 <!-- ## ショートディベート -->
 <!-- ::: {style="font-size: 0.8em;"} -->
