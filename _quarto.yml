@@ -39,6 +39,10 @@ website:
       - section: 事例分析
       - section: 政治学と方法論
       - section: グループワーク
+      - section: "付録"
+        contents:
+        - text: "付録01/スライドの保存方法"
+          href: app01_pdfexport.qmd
 
 format:
   html:
