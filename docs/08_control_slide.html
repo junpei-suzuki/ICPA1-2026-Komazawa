@@ -159,9 +159,9 @@
 <ol type="1">
 <li>はじめに</li>
 <li>交絡変数</li>
-<li>重回帰分析</li>
+<li>回帰分析</li>
 <li>因果推論の根本問題</li>
-<li>ランダム化対照試験／統計的因果推論</li>
+<li>ランダム化対照実験／統計的因果推論</li>
 <li>まとめ</li>
 </ol>
 </section>
@@ -185,8 +185,7 @@
 <li>交絡変数とは何かを説明できる。</li>
 <li>重回帰分析で交絡変数を投入した際に何が起こるのかを説明できる。</li>
 <li>因果推論の根本問題とは何かを説明できる。</li>
-<li>自分の仮説に対応した、簡単なランダム化対照試験を設計できる。</li>
-<li>「自然実験」および「差分の差分法」とはそれぞれどのような手法かを説明できる。</li>
+<li>仮説に対応した、簡単なランダム化対照試験を設計できる。</li>
 <li>統計的因果推論の内的妥当性および外的妥当性について議論できる。</li>
 </ol>
 </div>
@@ -196,26 +195,423 @@
 <h2>本日の授業の位置付け</h2>
 <p><img data-src="figs/graphic_syllabus_icpa1.png"></p>
 </section></section>
+<section>
 <section id="交絡変数" class="title-slide slide level1 center">
 <h1>交絡変数</h1>
 
 </section>
-
-<section id="重回帰分析" class="title-slide slide level1 center">
-<h1>重回帰分析</h1>
+<section id="復習3条件と内生性" class="slide level2">
+<h2>復習：3条件と内生性</h2>
+<div class="fragment fade-in">
+<h4 id="因果関係の3条件">因果関係の3条件</h4>
+<ol type="1">
+<li><strong>共変関係</strong></li>
+<li>原因の時間的先行</li>
+<li>他の変数の統制</li>
+</ol>
+</div>
+<div class="fragment fade-in">
+<h4 id="内生性-endogeneity">内生性 (endogeneity)</h4>
+<p>共変関係が観察されたとしても、本当の<strong>因果効果</strong>が歪んでしまう問題</p>
+<ul>
+<li class="fragment"><strong>同時性</strong>…原因の時間的先行がない（前回）</li>
+<li class="fragment"><strong>欠落変数</strong>…他の変数が統制されていない（今回）</li>
+<li class="fragment"><strong>観測誤差</strong>…独立変数の測定にずれ（第5回）</li>
+</ul>
+</div>
+</section>
+<section id="交絡変数-confounding-variable" class="slide level2">
+<h2>交絡変数 (confounding variable)</h2>
+<img data-src="figs/confounder.png" class="r-stretch">
+<aside class="notes">
+<p><strong>交絡変数</strong> (confounding variable, confounder)…独立変数（原因）と従属変数（結果）両方に影響する変数</p>
+<ul>
+<li>例：朝食と成績←家庭環境
+<ul>
+<li>家庭環境がいいと朝食を食べる</li>
+<li>家庭環境がいいと成績がいい</li>
+<li>朝食と成績は「<strong>見せかけの相関</strong>（spurious correlation）」</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<!-- ## 見せかけの相関 (spurious correlation)[^spurious] -->
+<!-- ![](figs/spurious_correlation_5236.png){.r-stretch} -->
+<!-- [^spurious]: Tyler Vigen "[Spurious Correlations](https://www.tylervigen.com/spurious-correlations)" -->
+</section>
+<section id="think-pair-share--10分" class="slide level2">
+<h2>Think-pair-share (-10分)</h2>
+<p><a href="https://www.tylervigen.com/spurious/correlation/5236_number-of-websites-on-the-internet_correlates-with_total-wind-power-generated-globally">インターネット上のウェブサイトの数と世界の風力発電量には明確な相関</a>があります。</p>
+<p>この2つの変数にはなぜ相関が出るのだと思いますか？</p>
+<ul>
+<li><strong>Think</strong> (1-2分)…1人で考える</li>
+<li><strong>Pair</strong> (1-2分)…ペアで共有する</li>
+<li><strong>Share</strong> (2-3分)…全体に共有する（<a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=172d46287b2cb28bd9f8766f65f9f2c4">WebClassチャット</a>）</li>
+</ul>
+<img data-src="figs/08_control_chatQR.png" class="r-stretch">
+</section></section>
+<section>
+<section id="回帰分析" class="title-slide slide level1 center">
+<h1>回帰分析</h1>
 
 </section>
-
+<section id="回帰分析-regression-analysis" class="slide level2">
+<h2>回帰分析 (regression analysis)</h2>
+<p>独立変数と従属変数の関係を示すモデルを推定する分析</p>
+<div class="fragment fade-in">
+<p><strong>単回帰</strong>…独立変数が1つだけの回帰分析</p>
+</div>
+<div class="fragment fade-in">
+<p><img data-src="figs/regression.png" style="width:60.0%"></p>
+</div>
+<div class="fragment fade-in">
+<p><strong>重回帰</strong>…独立変数が複数の回帰分析</p>
+</div>
+</section>
+<section id="表7-1-tppへの態度-p.146" class="slide level2">
+<h2>表7-1 TPPへの態度 (p.146)</h2>
+<div style="font-size: 0.9em;">
+<p><span class="math display">\[
+y= \alpha+\beta_{1} x_{1}+\beta_{2} x_{2}+\beta_{3} x_{3}
+\]</span></p>
+<ul>
+<li class="fragment">TPPへの態度 (<span class="math inline">\(y\)</span>)…賛成=1〜反対=5</li>
+<li class="fragment">性別(<span class="math inline">\(x_{1}\)</span>)…男性=1、女性=2</li>
+<li class="fragment">年齢(<span class="math inline">\(x_{2}\)</span>)…実年齢</li>
+<li class="fragment">学歴(<span class="math inline">\(x_{3}\)</span>)…中卒以下=1、高卒=2、専門・短大卒=3、大卒以上=4</li>
+<li class="fragment"><span class="math inline">\(\alpha\)</span>は切片、<span class="math inline">\(\beta_{(\cdot)}\)</span>はそれぞれの係数（傾き）</li>
+</ul>
+<div class="fragment fade-in">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>B</th>
+<th>標準誤差</th>
+<th>β</th>
+<th>t値</th>
+<th>有意確率</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>（定数）</td>
+<td><strong>3.413</strong></td>
+<td>0.173</td>
+<td></td>
+<td>19.693</td>
+<td><strong>0.000</strong></td>
+</tr>
+<tr class="even">
+<td>性別</td>
+<td><strong>0.271</strong></td>
+<td>0.049</td>
+<td>0.102</td>
+<td>5.481</td>
+<td><strong>0.000</strong></td>
+</tr>
+<tr class="odd">
+<td>年齢</td>
+<td><strong>-0.018</strong></td>
+<td>0.002</td>
+<td>-0.182</td>
+<td>-9.821</td>
+<td><strong>0.000</strong></td>
+</tr>
+<tr class="even">
+<td>学歴</td>
+<td><strong>-0.076</strong></td>
+<td>0.030</td>
+<td>-0.048</td>
+<td>-2.562</td>
+<td><strong>0.000</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="表7-2-tppへの態度-p.147" class="slide level2">
+<h2>表7-2 TPPへの態度 (p.147)</h2>
+<p><span class="math display">\[
+y= \alpha+\beta_{1} x_{1}+\beta_{2} x_{2}+\beta_{3} x_{3}+\beta_{4} x_{4}
+\]</span></p>
+<ul>
+<li class="fragment">所得(<span class="math inline">\(x_{4}\)</span>)…200万円未満=1〜1400万円以上=8</li>
+</ul>
+<div class="fragment fade-in">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th></th>
+<th>B</th>
+<th>標準誤差</th>
+<th>β</th>
+<th>t値</th>
+<th>有意確率</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>（定数）</td>
+<td><strong>3.495</strong></td>
+<td>0.183</td>
+<td></td>
+<td>19.118</td>
+<td><strong>0.000</strong></td>
+</tr>
+<tr class="even">
+<td>性別</td>
+<td><strong>0.287</strong></td>
+<td>0.052</td>
+<td>0.107</td>
+<td>5.536</td>
+<td><strong>0.000</strong></td>
+</tr>
+<tr class="odd">
+<td>年齢</td>
+<td><strong>-0.016</strong></td>
+<td>0.002</td>
+<td>-0.163</td>
+<td>-8.290</td>
+<td><strong>0.000</strong></td>
+</tr>
+<tr class="even">
+<td>学歴</td>
+<td><strong>-0.045</strong></td>
+<td>0.032</td>
+<td>-0.028</td>
+<td>-1.410</td>
+<td><strong>0.159</strong></td>
+</tr>
+<tr class="odd">
+<td>所得</td>
+<td><strong>-0.085</strong></td>
+<td>0.014</td>
+<td>-0.114</td>
+<td>-5.854</td>
+<td><strong>0.000</strong></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="クイズ" class="slide level2">
+<h2>クイズ</h2>
+<p>表7-1では確かめられていた学歴の効果が、所得を入れた表7-2では消えてしまいました。</p>
+<p>なぜ効果が消えてしまったのでしょうか。</p>
+<p>以下の選択肢から正しい理由を選んでください。</p>
+<ol type="1">
+<li>TPP賛成の人ほど学歴が高くなるから</li>
+<li>高学歴の人ほど所得も高い傾向があり、実際には所得がTPP態度に関係していたから</li>
+<li>所得を入れるとデータ数が減るから</li>
+<li>重回帰分析では、後から入れた変数の方が優先されるから</li>
+</ol>
+<p><a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=510a5dabc784642b0bb7f2d725465cc8&amp;page=1">WebClass</a>で回答</p>
+<p><img data-src="figs/08_control_quizQR.png" style="width:20.0%"></p>
+</section>
+<section id="重回帰分析と因果推論" class="slide level2">
+<h2>重回帰分析と因果推論</h2>
+<div class="fragment fade-in">
+<p>交絡変数はモデルに投入して<strong>統制</strong>可能</p>
+<ul>
+<li class="fragment">学歴の効果（<span class="math inline">\(-0.076\)</span>→<span class="math inline">\(-0.045\)</span>）…所得の影響を<strong>差し引き</strong></li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<p>すべての交絡因子を特定するのは不可能</p>
+</div>
+<div class="fragment fade-in">
+<p>同時性や測定誤差の問題は残る</p>
+</div>
+</section></section>
+<section>
 <section id="因果推論の根本問題" class="title-slide slide level1 center">
 <h1>因果推論の根本問題</h1>
 
 </section>
-
-<section id="ランダム化対照試験統計的因果推論" class="title-slide slide level1 center">
-<h1>ランダム化対照試験／統計的因果推論</h1>
+<section id="質問" class="slide level2">
+<h2>質問</h2>
+<p>ある日あなたは風邪をひき38度の熱が出ました。</p>
+<p>そこでおばあちゃんが手作りの薬をくれました。</p>
+<p>これを飲んだところ、次の日には本当に36.5度まで熱が下がりました。</p>
+<p>この薬に効果はあったと結論づけて良いでしょうか？</p>
+<p><a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=172d46287b2cb28bd9f8766f65f9f2c4">WebClassチャット</a>で回答</p>
+<img data-src="figs/08_control_chatQR.png" class="r-stretch">
+</section>
+<section id="因果推論の根本問題-1" class="slide level2">
+<h2>因果推論の根本問題</h2>
+<p>因果効果を測定するためには、<strong>現実</strong>の結果と<strong>反事実</strong>の結果を比較する必要があるが、<strong>反事実</strong>の結果を観察することは決してできない<sup>1</sup></p>
+<div class="fragment fade-in">
+<p>おばあちゃんの薬の例：</p>
+<ul>
+<li class="fragment">現実＝薬を飲んだ後の体温（<span class="math inline">\(36.5\)</span>度）</li>
+<li class="fragment">反事実＝薬を飲まなかった場合の体温（<span class="math inline">\(38\)</span>度）</li>
+<li class="fragment">因果効果：<span class="math inline">\(38-36.5=1.5\)</span>度
+<ul>
+<li class="fragment">薬の服用以外は全く同じ状況での比較＝<strong>単位同質性</strong>がある</li>
+</ul></li>
+<li class="fragment">薬を飲まなかった場合の体温は観察不能
+<ul>
+<li class="fragment"><span class="math inline">\(?-36.5=?\)</span></li>
+</ul></li>
+</ul>
+</div>
+<aside class="notes">
+<p>因果推論は異なった「世界線」間の比較をしなければならない</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<aside><ol class="aside-footnotes"><li id="fn1"><ul>
+<li>ローデ，エレーナ&amp;今井耕介（2025）『新・社会科学のためのデータ分析入門　導入編』（原田勝孝訳）岩波書店，p.45．</li>
+</ul>
+</li></ol></aside></section>
+<section id="根本問題の解決法" class="slide level2">
+<h2>根本問題の解決法</h2>
+<div class="fragment fade-in">
+<p><strong>科学的解決</strong>…単位同質性が間違いなく確保されていると言える</p>
+<ul>
+<li class="fragment">例：アサガオのでんぷん実験
+<ul>
+<li class="fragment">葉の一部を隠す→日光に当てた後ヨウ素液につける</li>
+<li class="fragment">隠された部分と隠されていない部分…厳密には違うが<strong>科学的には同じ</strong></li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<p><strong>統計的解決</strong>…単位同一性のある状況を人工的に作り出す</p>
+<ul>
+<li class="fragment">ランダム化対照実験 (RCT)</li>
+<li class="fragment">統計的因果推論</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="ランダム化対照実験統計的因果推論" class="title-slide slide level1 center">
+<h1>ランダム化対照実験／統計的因果推論</h1>
 
 </section>
-
+<section id="ランダム化対照実験" class="slide level2">
+<h2>ランダム化対照実験</h2>
+<h4 id="randomized-controlled-trial-rct">Randomized Controlled Trial (RCT)</h4>
+<p>研究対象者をランダムにグループ分けし、治療法や介入などの効果を検証する方法</p>
+<div class="fragment fade-in">
+<p>新薬の治験：</p>
+<ul>
+<li class="fragment">被験者をランダムに2分割</li>
+<li class="fragment">一方には偽薬（プラセボ）、もう一方には本物の新薬
+<ul>
+<li class="fragment"><strong>プラセボ効果</strong>…偽薬でも体調に変化</li>
+</ul></li>
+<li class="fragment">偽薬群と新薬群で症状を比較</li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<p><strong>サーベイ実験</strong> (survey experiment)…世論調査にRCTを組み込む</p>
+</div>
+</section>
+<section id="直井久米の実験" class="slide level2">
+<h2>直井・久米の実験</h2>
+<div class="fragment fade-in">
+<p>オンラインの世論調査</p>
+<ul>
+<li class="fragment">食糧輸入／輸入一般に対する賛否</li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<p>回答者1200人をランダムに以下のグループに分割</p>
+<ol type="1">
+<li class="fragment"><strong>統制群</strong>：何も見せずに回答</li>
+<li class="fragment"><strong>処置群①</strong>：生産者意識を刺激する画像を見て回答</li>
+<li class="fragment"><strong>処置群②</strong>：消費者意識を刺激する画像を見て回答</li>
+</ol>
+</div>
+</section>
+<section id="実験刺激と結果" class="slide level2">
+<h2>実験刺激と結果</h2>
+<div class="r-stack">
+<p><img data-src="figs/Naoi_Kume_producer.jpg" class="fragment"></p>
+<p><img data-src="figs/Naoi_Kume_consumer.jpg" class="fragment"></p>
+<p><img data-src="figs/Naoi_Kume_result.jpg" class="fragment"></p>
+</div>
+<aside class="notes">
+<p>結果：</p>
+<ul>
+<li>食糧輸入に対しては輸入一般よりも否定的</li>
+<li>生産者刺激は食糧輸入への否定感を強める</li>
+<li>消費者刺激は輸入一般への肯定感を強める</li>
+<li>生産者刺激の効果が人によって違う</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="統計的因果推論" class="slide level2">
+<h2>統計的因果推論</h2>
+<div class="fragment fade-in">
+<p>RCTはいつでもできるわけではない</p>
+<ul>
+<li class="fragment">金銭面のコスト</li>
+<li class="fragment">倫理面の問題</li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<h4 id="統計的因果推論-statistical-causal-inference">統計的因果推論 (statistical causal inference)</h4>
+<p><strong>観察データ</strong>から因果推論をする手法</p>
+<ul>
+<li class="fragment">実験データではないデータ</li>
+<li class="fragment">自然実験、差分の差分、操作変数、回帰不連続デザイン、マッチング…</li>
+</ul>
+</div>
+<div class="fragment fade-in">
+<p>RCTも統計的因果推論も<strong>内的妥当性</strong>は高いが<strong>外的妥当性</strong>が低い</p>
+<ul>
+<li class="fragment">Q. 教科書（第7章）のどこで議論されている？</li>
+</ul>
+</div>
+<aside class="notes">
+<p>RCTの限界</p>
+<ul>
+<li>金銭面のコスト…サーベイ実験で数十万、新薬の実験なら数億</li>
+<li>倫理面…朝食を食べさせるか抜かせるか</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section></section>
 <section>
 <section id="まとめ" class="title-slide slide level1 center">
 <h1>まとめ</h1>
@@ -232,8 +628,7 @@
 <li>交絡変数とは何かを説明できる。</li>
 <li>重回帰分析で交絡変数を投入した際に何が起こるのかを説明できる。</li>
 <li>因果推論の根本問題とは何かを説明できる。</li>
-<li>自分の仮説に対応した、簡単なランダム化対照試験を設計できる。</li>
-<li>「自然実験」および「差分の差分法」とはそれぞれどのような手法かを説明できる。</li>
+<li>仮説に対応した、簡単なランダム化対照試験を設計できる。</li>
 <li>統計的因果推論の内的妥当性および外的妥当性について議論できる。</li>
 </ol>
 </div>
@@ -247,7 +642,7 @@
 <li>授業資料を見直し、目標到達をセルフチェック</li>
 <li>WebClass 上でのリアクションペーパー入力（金曜日まで）
 <ul>
-<li>事後課題（自分の仮説に対応したRCTの設計）</li>
+<li>コロナワクチンの「危険性」とその検証方法について（500字）</li>
 </ul></li>
 </ul>
 </div>
@@ -260,6 +655,7 @@
 
 
 </section></section>
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="figs/Komazawa_univ._logo.svg" class="slide-logo"></p>

@@ -36,6 +36,8 @@ website:
           href: 06_covariation.qmd
         - text: "07/原因の時間的先行"
           href: 07_causalpriority.qmd
+        - text: "08/変数の統制"
+          href: 08_control.qmd
       - section: 事例分析
       - section: 政治学と方法論
       - section: グループワーク
