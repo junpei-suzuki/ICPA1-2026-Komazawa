@@ -237,7 +237,7 @@ metadata-files:
 :::
 ## 概念化と操作化
 ::: {.fragment .fade-in}
-#### 概念化 (conceputalization)
+#### 概念化 (conceptualization)
 抽象的な概念を成り立たせている構成要素を検討し定式化すること
 
 ::: {.incremental}

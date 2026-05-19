@@ -10,8 +10,8 @@
   <meta name="generator" content="quarto-1.8.27">
 
   <meta name="author" content="鈴木淳平">
-  <meta name="dcterms.date" content="2026-05-19">
-  <title>現代政治分析入門1@駒大2026 – 05/推論としての記述</title>
+  <meta name="dcterms.date" content="2026-06-09">
+  <title>現代政治分析入門1@駒大2026 – 08/変数の統制</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -131,7 +131,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">05/推論としての記述</h1>
+  <h1 class="title">08/変数の統制</h1>
   <p class="subtitle">現代政治分析入門1</p>
 
 <div class="quarto-title-authors">
@@ -148,7 +148,7 @@
     </div>
 </div>
 
-  <p class="date">2026-05-19</p>
+  <p class="date">2026-06-09</p>
 </section>
 <section id="出席登録をお願いします" class="slide level2">
 <h2>出席登録をお願いします</h2>
@@ -158,140 +158,36 @@
 <h2>今日の目次</h2>
 <ol type="1">
 <li>はじめに</li>
-<li>推論としての記述</li>
-<li>確率的誤差</li>
-<li>世論調査とバイアス</li>
-<li>操作化によるバイアス</li>
+<li>交絡変数</li>
+<li>重回帰分析</li>
+<li>因果推論の根本問題</li>
+<li>ランダム化対照試験／統計的因果推論</li>
 <li>まとめ</li>
 </ol>
 </section>
 <section>
 <section id="はじめに" class="title-slide slide level1 center">
 <h1>はじめに</h1>
-<aside class="notes">
-<p>目標15分</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
 </section>
-<section id="先週のrpより-13" class="slide level2">
-<h2>先週のRPより (1/3)</h2>
-<div class="fragment fade-in">
-<blockquote>
-<p>今回新しく学んだことは、個別的説明（特定の事象の因果関係）、一般的説明（一般的に当てはまる因果関係）の区別で、この二つは数学分野の演繹法と帰納法に類似している点に気づきました。</p>
-</blockquote>
-</div>
-<div class="fragment fade-in">
-<blockquote>
-<p>個別説明の一般化はどこまで抽象的にすれば良いのかが難しかった。</p>
-</blockquote>
-</div>
-<aside class="notes">
-<p>演繹と帰納（詳しくは来週議論） - 帰納…個別説明を一般化すること - 演繹…一般的説明を個別事例に当てはまること - ただし帰納・演繹は数学ではなく、論理学であることに注意 - 数学的帰納法は実は演繹</p>
-<p>どこまで一般化すべきか - 説明の範囲は目的に合わせるべき（第9回） - 「クーデタの発生はなぜ」→先進民主主義国まで含めた説明は必要か？ -　過度の一般化はステレオタイプや差別にもつながる - 一部の外国人の犯罪→外国人は危険だ</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="先週のrpより-23" class="slide level2">
-<h2>先週のRPより (2/3)</h2>
-<div class="fragment fade-in">
-<blockquote>
-<p>個別説明の構築で駅から駒澤大学に行く道のりが混むのは、大学から駅までが遠いからだというのを一般化すると、目的地までの距離が長いほどひとが集中して混雑が起こる、でよいのか</p>
-</blockquote>
-</div>
-<div class="fragment fade-in">
-<blockquote>
-<p>一般化でインスタの投稿頻度が高いのは、他者からの評価を気にしているからだ。という仮説は、他者からの評価を重視する人ほど、snsでの自己発信が多いと言い換えることはできますか。</p>
-</blockquote>
-</div>
-<div class="fragment fade-in">
-<blockquote>
-<p>個別）2009年の衆院選で自民党が負けたのはリーマンショックによる経済悪化があったからだ。 一般）経済が悪化すると、与党は負けやすい。 ということでよろしいでしょうか。</p>
-</blockquote>
-</div>
-<aside class="notes">
-<p>全部OK→非常にいい一般化（特に最後）</p>
-<p>ここはサッと済ませる</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="先週のrpより-33" class="slide level2">
-<h2>先週のRPより (3/3)</h2>
-<div class="fragment fade-in">
-<blockquote>
-<p>今回の授業では、個別的説明を一般化して抽象的にすることはでき、理解はできたが、概念化というものについての理解が何となくしか理解できなかった。</p>
-</blockquote>
-</div>
-<div class="fragment fade-in">
-<blockquote>
-<p>講義中の声をもう少し大きくしてもらえると嬉しいです。</p>
-</blockquote>
-</div>
-<aside class="notes">
-<p>操作化については今日詳しく議論するが…</p>
-<ul>
-<li>各国の民主主義の程度をデータを使って比較したい！</li>
-<li>概念化…データを作る前に「民主主義ってなんだろうと」考える
-<ul>
-<li>定期的な選挙の有無、複数政党の存在、三権分立、言論の自由…</li>
-</ul></li>
-<li>操作化…上記のステップのデータを実際に集める</li>
-</ul>
-<p>声の大きさ</p>
-<ul>
-<li>気をつけます</li>
-</ul>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="先週のrpより" class="slide level2">
+<h2>先週のRPより</h2>
+<p>TBD</p>
 </section>
 <section id="本日の目的と到達目標" class="slide level2">
 <h2>本日の目的と到達目標</h2>
-<div style="font-size: 0.8em;">
+<div style="font-size: 0.9em;">
 <h4 id="目的">目的</h4>
-<p>因果推論の前提となる「記述」について根本的に考える。記述を歪める観測誤差とバイアスについて検討するとともに、計量的手法や質的手法に潜む記述の問題を考察できるようになることを目指す。</p>
+<p>因果関係が満たすべき要件の1つである「変数の統制」について改めて考える。「交絡変数」「因果推論の根本問題」といった問題を学び、その解決策としての実験や観察データ分析の手法の概要を知り、自分の因果推論にとって適切な方法を選べることを目指す。</p>
 <div class="fragment fade-in">
 <h4 id="到達目標">到達目標</h4>
 <ol type="1">
-<li>「記述には推論としての側面が含まれている」とはどういうことか説明できる。</li>
-<li>真実と観測の差である観測誤差が発生する2つの原因を列挙することができる。</li>
-<li>量的調査で確率的誤差を最小限にすれにはどうすれば良いかを説明できる。</li>
-<li>ランダムサンプリングの失敗が世論調査にどのような影響を与えるのか、実際の事例を用いて説明できる。</li>
-<li>一定の質を満たした操作化の方法を考案することができる。</li>
+<li>交絡変数とは何かを説明できる。</li>
+<li>重回帰分析で交絡変数を投入した際に何が起こるのかを説明できる。</li>
+<li>因果推論の根本問題とは何かを説明できる。</li>
+<li>自分の仮説に対応した、簡単なランダム化対照試験を設計できる。</li>
+<li>「自然実験」および「差分の差分法」とはそれぞれどのような手法かを説明できる。</li>
+<li>統計的因果推論の内的妥当性および外的妥当性について議論できる。</li>
 </ol>
 </div>
 </div>
@@ -300,335 +196,45 @@
 <h2>本日の授業の位置付け</h2>
 <p><img data-src="figs/graphic_syllabus_icpa1.png"></p>
 </section></section>
-<section>
-<section id="推論としての記述" class="title-slide slide level1 center">
-<h1>推論としての記述</h1>
-<aside class="notes">
-<p>ここまで15分</p>
-<p>目標10分</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+<section id="交絡変数" class="title-slide slide level1 center">
+<h1>交絡変数</h1>
+
 </section>
-<section id="質問" class="slide level2">
-<h2>質問</h2>
-<p>今日の教科書の該当部分（久米第4章）には『記述は推論という性格を持つ』というようなことが書かれて部分がありました。</p>
-<p>該当の箇所を探し、どういうことが書かれているか確認してください。</p>
-<p>（隣同士で協力してもよいです。）</p>
+
+<section id="重回帰分析" class="title-slide slide level1 center">
+<h1>重回帰分析</h1>
+
 </section>
-<section id="記述と推論" class="slide level2">
-<h2>記述と推論</h2>
-<div class="fragment fade-in">
-<h4 id="記述description">記述（description）</h4>
-<ul>
-<li class="fragment">「<strong>どうなっているのか</strong>」を明らかにすること
-<ul>
-<li class="fragment">何かを観測し、その結果を述べる</li>
-</ul></li>
-<li class="fragment">例：「Aさんの身長を測定した結果、180cmだった」</li>
-</ul>
-</div>
-<div class="fragment fade-in">
-<h4 id="推論inference">推論（inference）</h4>
-<ul>
-<li class="fragment">「<strong>知っていること</strong>」から「<strong>まだ知らないこと</strong>」を<strong>推測</strong>すること</li>
-<li class="fragment">観測結果は真実を全て反映しているわけではない→記述も推論</li>
-<li class="fragment">例：Aさんの身長は180cm→誤差が含まれる</li>
-</ul>
-</div>
+
+<section id="因果推論の根本問題" class="title-slide slide level1 center">
+<h1>因果推論の根本問題</h1>
+
 </section>
-<section id="観測誤差-measurement-error" class="slide level2">
-<h2>観測誤差 (measurement error)</h2>
-<p>真の値と観測値の間のずれ</p>
-<div class="fragment fade-in">
-<h4 id="種類の観測誤差">2種類の観測誤差</h4>
-<ul>
-<li class="fragment"><strong>確率的誤差</strong> (stochastic error)…<strong>偶然</strong>によって生まれたずれ</li>
-<li class="fragment"><strong>系統的誤差</strong> (systematic error)…<strong>特定の原因</strong>によって生まれたずれ
-<ul>
-<li class="fragment"><strong>バイアス</strong>（bias；歪み）とも呼ぶ</li>
-<li class="fragment">常に特定の方向をもつ→真の値よりも大きいor小さい</li>
-<li class="fragment">社会的望ましさバイアス、サンプリングバイアス、調査設計によるバイアス、操作化によるバイアス…</li>
-</ul></li>
-</ul>
-</div>
-</section></section>
-<section>
-<section id="確率的誤差" class="title-slide slide level1 center">
-<h1>確率的誤差</h1>
-<aside class="notes">
-<p>ここまで25分</p>
-<p>目標20分</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
+<section id="ランダム化対照試験統計的因果推論" class="title-slide slide level1 center">
+<h1>ランダム化対照試験／統計的因果推論</h1>
+
 </section>
-<section id="質問-1" class="slide level2">
-<h2>質問</h2>
-<p>あなたは駒大生の高市内閣の支持率を知りたいと思い、キャンパスで偶然出会った10人に高市内閣を支持するか否かを聞きました。</p>
-<div class="fragment fade-in">
-<p>その結果10人中10人が高市内閣を支持すると答えました。</p>
-</div>
-<div class="fragment fade-in">
-<p>この結果から、駒大生は全員高市支持者だと結論付けてよいと思いますか？それともダメですか？</p>
-</div>
-<div class="fragment fade-in">
-<p>理由も含めて<a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=e640575b8dcb089d9a1dbb139a033b8a">WebClassチャット</a>に書き込んでみてください。</p>
-<p><img data-src="figs/05_descpription_chatQR.png" style="width:40.0%"></p>
-</div>
-</section>
-<section id="世論調査-opinion-poll" class="slide level2">
-<h2>世論調査 (opinion poll)</h2>
-<div class="fragment fade-in">
-<p>内閣・政党・政策に対する<strong>市民全体</strong>の賛否を測る</p>
-</div>
-<ul>
-<li class="fragment">市民全員に聞くのが理想→コストが高すぎる</li>
-<li class="fragment"><strong>ランダムサンプリング</strong>…全体（<strong>母集団</strong>）から一部（<strong>標本</strong>、<strong>サンプル</strong>）をランダムに抽出</li>
-<li class="fragment">サンプルを分析し、その結果から母集団の賛否を推測</li>
-<li class="fragment">ただし結果は<strong>確率的誤差</strong>を含む
-<ul>
-<li class="fragment">サンプルは一部が偶然選ばれただけ</li>
-<li class="fragment">結果も偶然そうなっただけかもしれない</li>
-<li class="fragment">もし別の人が選ばれていたら違う結果</li>
-</ul></li>
-</ul>
-</section>
-<section id="質問-2" class="slide level2">
-<h2>質問</h2>
-<p>より正確に駒大生の高市内閣支持を測定するために調査をどうに改善すればいいでしょうか？</p>
-<p><a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=e640575b8dcb089d9a1dbb139a033b8a">WebClassチャット</a></p>
-<img data-src="figs/05_descpription_chatQR.png" class="r-stretch">
-</section>
-<section id="推測統計学-statistical-inference" class="slide level2">
-<h2>推測統計学 (statistical inference)</h2>
-<p>サンプルの性質から母集団の性質を推測する際に用いられる統計学の方法</p>
-<div class="fragment fade-in">
-<p>→基本的には<strong>サンプルサイズ</strong>を大きくすればよい</p>
-<ul>
-<li class="fragment"><strong>サンプルサイズ</strong>…標本に何人／何個分のデータがあるか</li>
-<li class="fragment"><strong>サンプル数</strong>…データのセットである標本がいくつあるか</li>
-</ul>
-</div>
-<div class="fragment fade-in">
-<p><strong>大数の法則</strong>と<strong>中心極限定理</strong>（<a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=1cbaca0a4798f40860227094b0ca1107&amp;page=1">補足ビデオ</a>参照）</p>
-</div>
-</section></section>
-<section>
-<section id="世論調査とバイアス" class="title-slide slide level1 center">
-<h1>世論調査とバイアス</h1>
-<aside class="notes">
-<p>ここまで45分</p>
-<p>休憩5分</p>
-<p>目標15分</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="米大統領選と世論調査" class="slide level2">
-<h2>米大統領選と世論調査</h2>
-<div class="columns">
-<div class="column" style="width:70%;">
-<p><strong>2016年アメリカ大統領選挙</strong></p>
-<ul>
-<li class="fragment"><strong>ヒラリー・クリントン</strong>（民主党）vs.<strong>ドナルド・トランプ</strong>（共和党）</li>
-<li class="fragment">主要メディアはヒラリーの勝利を予測</li>
-<li class="fragment">結果はトランプの勝利</li>
-</ul>
-<div class="fragment fade-in">
-<p>Q. なぜ世論調査の予測と結果がずれた？</p>
-<ul>
-<li>トランプ支持の過小評価／ヒラリー支持の過大評価</li>
-</ul>
-</div>
-</div><div class="column" style="width:30%;">
-<p><img data-src="figs/Donald_Trump.jpg"></p>
-</div></div>
-</section>
-<section id="バイアスに関する説明uselection" class="slide level2">
-<h2>バイアスに関する説明<sup>1</sup></h2>
-<div style="font-size: 0.9em;">
-<div class="fragment fade-in">
-<h4 id="社会的望ましさバイアス-social-desirability-bias-sdb">社会的望ましさバイアス (Social Desirability Bias: SDB)</h4>
-<ul>
-<li class="fragment"><strong>「隠れトランプ」仮説</strong> (shy-voter hypothesis)とも
-<ul>
-<li class="fragment">トランプ支持を公言できない雰囲気</li>
-<li class="fragment">世論調査に嘘の回答→トランプ支持を過小評価</li>
-</ul></li>
-<li class="fragment"><strong>政治学では支持されていない</strong></li>
-</ul>
-</div>
-<div class="fragment fade-in">
-<h4 id="サンプリングバイアス-sampling-bias">サンプリングバイアス (sampling bias)</h4>
-<ul>
-<li class="fragment">社会的属性により世論調査への参加率に差→ランダムサンプリングが機能不全</li>
-<li class="fragment">高学歴層の方が世論調査に参加する傾向
-<ul>
-<li class="fragment">高学歴層→左派／リベラルな価値観</li>
-<li class="fragment">ヒラリー支持が過大評価されるバイアス</li>
-</ul></li>
-</ul>
-</div>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>飯田健（2020）「<a href="https://www.jiia.or.jp/jpn/report/2020/10/research-report_post-16.html">2016年大統領選挙に関する実証研究の知見と2020年大統領選挙</a>」</p></li></ol></aside></section>
-<section id="報道各社の高市内閣支持率26年3月" class="slide level2">
-<h2>報道各社の高市内閣支持率（26年3月）</h2>
-<img data-src="figs/cabinet_approval_202603.png" class="r-stretch">
-<p><a href="https://www.policynews.jp/polls/2026/03all.html">Source</a></p>
-<aside class="notes">
-<p>朝日や毎日やNHKは左翼だから高市が嫌いで支持率を低くしている→陰謀論めいた間違い</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="調査設計によるバイアス" class="slide level2">
-<h2>調査設計によるバイアス</h2>
-<p>各社の支持率の違いは調査設計の違いによる</p>
-<div class="fragment fade-in">
-<h4 id="重ね聞き">「重ね聞き」</h4>
-<p>「どちらでもない」という回答者に改めて聞く</p>
-<ul>
-<li class="fragment">読売・日経・産経はする→支持率が高く出る</li>
-<li class="fragment">毎日・朝日・NHKはしない→支持率が低く出る</li>
-</ul>
-</div>
-</section></section>
-<section>
-<section id="操作化によるバイアス" class="title-slide slide level1 center">
-<h1>操作化によるバイアス</h1>
-<aside class="notes">
-<p>ここまで65分（1:05:00）</p>
-<p>目標20分</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="復習操作化-operationalization" class="slide level2">
-<h2>復習：操作化 (operationalization)</h2>
-<div class="fragment fade-in">
-<p>抽象的な概念を観察可能な変数を用いて定義し直すこと</p>
-<ul>
-<li class="fragment">「<strong>測定</strong> (measurement)」とも</li>
-<li class="fragment">例：学力→試験の点数</li>
-</ul>
-</div>
-<div class="fragment fade-in">
-<p>よい操作化／測定が満たすべき3基準</p>
-<ul>
-<li class="fragment"><strong>信頼性</strong> (reliability)…誰が何回やっても同じ結果が出るか
-<ul>
-<li class="fragment">例：レポートを「良い・まあまあ・悪い」で評価</li>
-</ul></li>
-<li class="fragment"><strong>妥当性</strong> (validity)…概念を適切に測定できているか
-<ul>
-<li class="fragment">例：<a href="https://president.jp/articles/-/71137">ジェンダー・ギャップ指数</a></li>
-</ul></li>
-<li class="fragment"><strong>効率性</strong> (efficiency)…実際に可能かどうか</li>
-</ul>
-</div>
-<aside class="notes">
-<p>ジェンダー・ギャップ指数→日本は125位（2023）</p>
-<p>日本より上位の国々</p>
-<ul>
-<li><p>ニカラグア（7位）…性暴力による未成年出産が多い</p></li>
-<li><p>ルワンダ（12位）…女性はインフォーマルセクター（農場などの無給家事労働、日雇い労働）で雇用</p></li>
-</ul>
-<p>ジェンダーギャップ指数は男女差が測れる指標（管理職比率、国会議員比率）のみ対象→先進国が基本対象</p>
-<p>ジェンダー・ギャップで日本が先進国では最低レベルとは言えるが、世界最悪とは言えない</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
-</section>
-<section id="質問-3" class="slide level2">
-<h2>質問</h2>
-<p>以下の事例は信頼性と妥当性どちらに問題があると言えるでしょうか。またそれぞれどのように改善できるでしょうか。</p>
-<ul>
-<li>事例①：就活生を採用するかどうかを印象だけで決める</li>
-<li>事例②：ある国が民主主義か独裁か選挙の有無だけで分類する</li>
-</ul>
-<p><a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=fec6acf6fefd60609c75c5e6f2a36966&amp;page=1">WebClassアンケート</a>に入力してください (3-5分)</p>
-<img data-src="figs/05_descpription_surveyQR.png" class="r-stretch">
-</section></section>
+
 <section>
 <section id="まとめ" class="title-slide slide level1 center">
 <h1>まとめ</h1>
-<aside class="notes">
-<p>ここまで85分（目標1:25:00）</p>
-<p>目標5分</p>
-<style type="text/css">
-        span.MJX_Assistive_MathML {
-          position:absolute!important;
-          clip: rect(1px, 1px, 1px, 1px);
-          padding: 1px 0 0 0!important;
-          border: 0!important;
-          height: 1px!important;
-          width: 1px!important;
-          overflow: hidden!important;
-          display:block!important;
-      }</style></aside>
+
 </section>
 <section id="本日の目的と到達目標-1" class="slide level2">
 <h2>本日の目的と到達目標</h2>
-<div style="font-size: 0.8em;">
+<div style="font-size: 0.9em;">
 <h4 id="目的-1">目的</h4>
-<p>因果推論の前提となる「記述」について根本的に考える。記述を歪める観測誤差とバイアスについて検討するとともに、計量的手法や質的手法に潜む記述の問題を考察できるようになることを目指す。</p>
+<p>因果関係が満たすべき要件の1つである「変数の統制」について改めて考える。「交絡変数」「因果推論の根本問題」といった問題を学び、その解決策としての実験や観察データ分析の手法の概要を知り、自分の因果推論にとって適切な方法を選べることを目指す。</p>
 <div class="fragment fade-in">
 <h4 id="到達目標-1">到達目標</h4>
 <ol type="1">
-<li>「記述には推論としての側面が含まれている」とはどういうことか説明できる。</li>
-<li>真実と観測の差である観測誤差が発生する2つの原因を列挙することができる。</li>
-<li>量的調査で確率的誤差を最小限にすれにはどうすれば良いかを説明できる。</li>
-<li>ランダムサンプリングの失敗が世論調査にどのような影響を与えるのか、実際の事例を用いて説明できる。</li>
-<li>一定の質を満たした操作化の方法を考案することができる。</li>
+<li>交絡変数とは何かを説明できる。</li>
+<li>重回帰分析で交絡変数を投入した際に何が起こるのかを説明できる。</li>
+<li>因果推論の根本問題とは何かを説明できる。</li>
+<li>自分の仮説に対応した、簡単なランダム化対照試験を設計できる。</li>
+<li>「自然実験」および「差分の差分法」とはそれぞれどのような手法かを説明できる。</li>
+<li>統計的因果推論の内的妥当性および外的妥当性について議論できる。</li>
 </ol>
 </div>
 </div>
@@ -639,26 +245,26 @@
 <h4 id="事後学習">事後学習</h4>
 <ul>
 <li>授業資料を見直し、目標到達をセルフチェック</li>
-<li>WebClass 上でのリアクションペーパー入力（金曜日まで）</li>
-<li>【任意】補足ビデオ「大数の法則と中心極限定理」の視聴（WebClass上）</li>
-<li>【任意】筒井淳也「<a href="https://president.jp/articles/-/71137">『日本はジェンダーギャップ125位』をそのまま受け取ってはいけない…『指数』が反映しきれない現実の世界</a>」を読む</li>
+<li>WebClass 上でのリアクションペーパー入力（金曜日まで）
+<ul>
+<li>事後課題（自分の仮説に対応したRCTの設計）</li>
+</ul></li>
 </ul>
 </div>
 <div class="fragment fade-in">
 <h4 id="事前学習">事前学習</h4>
 <ul>
-<li>教科書（久米5章）を読み、WebClass 上でのチェックフォーム記入</li>
+<li>教科書（久米8章）を読み、WebClass 上でのチェックフォーム記入</li>
 </ul>
 </div>
 
 
 </section></section>
-
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="figs/Komazawa_univ._logo.svg" class="slide-logo"></p>
 <div class="footer footer-default">
-<p>推論と記述</p>
+<p>変数の統制</p>
 </div>
 </div></div>
 
