@@ -168,11 +168,253 @@
 <section>
 <section id="はじめに" class="title-slide slide level1 center">
 <h1>はじめに</h1>
-
+<aside class="notes">
+<p>目標20分</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="先週のrpより" class="slide level2">
-<h2>先週のRPより</h2>
-<p>TBD</p>
+<section id="先週のrpより-16" class="slide level2">
+<h2>先週のRPより (1/6)</h2>
+<div class="fragment fade-in">
+<blockquote>
+<p>選挙制度と有効政党数は、どちらも連続した値が多いわけではないが、小選挙区・中選挙区・大選挙区(比例代表）と連続したものがあるから、連続×連続にあたると考える。</p>
+</blockquote>
+</div>
+<div class="fragment fade-in">
+<blockquote>
+<p>国内の労働者不足の結果、外国人労働者が増える。 は、カテゴリ×カテゴリに分類されると考えたがまだよく理解できていないのであっているか不安である。</p>
+</blockquote>
+</div>
+<aside class="notes">
+<p>変数の種類についてコメントが多くあった</p>
+<ul>
+<li>選挙制度はカテゴリ
+<ul>
+<li>大小関係はあるが、小選挙区・中選挙区・大選挙区どれに該当するか否かというのはカテゴリ</li>
+</ul></li>
+<li>労働者数は連続</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="先週のrpより-26" class="slide level2">
+<h2>先週のRPより (2/6)</h2>
+<div class="fragment fade-in">
+<blockquote>
+<p>コイン投げの例のグラフで、400回以下の場合、確率は本当に1なのか気になった。400回の確率ではなく、400回以上になる累積確率なのか。</p>
+</blockquote>
+</div>
+<div class="fragment fade-in">
+<blockquote>
+<p>ｔ検定は、平均値に差がない(偶然である)という仮説を立てて、その確率が非常に低ければ、偶然ではないと判断する、ということで合っていますか？</p>
+</blockquote>
+</div>
+<div class="fragment fade-in">
+<blockquote>
+<p>統計的仮説検定の帰無仮説について、確率の基準は何によって変化するのですか。</p>
+</blockquote>
+</div>
+<div class="fragment fade-in">
+<blockquote>
+<p>カイ二乗検定でどのようなことが分かるのか、どのように計算すればよいのかを機会があればまた説明していただきたいです。（<a href="https://gmo-research.ai/research-column/chi-square-test">参考</a>）</p>
+</blockquote>
+</div>
+<aside class="notes">
+<p>コイン投げのグラフ</p>
+<ul>
+<li>累積確率。厳密には1ではない（0.99….）</li>
+</ul>
+<p>t検定</p>
+<ul>
+<li>基本的にはその解釈でOK</li>
+<li>ただし連続*連続にも適用可能→帰無仮説「相関係数は0」を検定</li>
+</ul>
+<p>確率の基準（＝有意水準）</p>
+<ul>
+<li>慣習によるとしか言えない。
+<ul>
+<li>基本的には5%、ただし医学系では1%</li>
+</ul></li>
+<li>これらの基準に根拠はない</li>
+</ul>
+<p>カイ二乗検定</p>
+<ul>
+<li>カテゴリ変数間の関係の検定
+<ul>
+<li>政党支持と内閣支持、性別と猫好き</li>
+</ul></li>
+<li>計算は面倒くさい（参考ページか、統計学の教科書を読むこと）</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="先週のrpより-36" class="slide level2">
+<h2>先週のRPより (3/6)</h2>
+<div class="fragment fade-in">
+<blockquote>
+<p>クイズで出てきた「駒澤は仏教系の大学なので、この教室にいる人たちも仏教徒が多いだろう」は演繹だったが、「この教室にいる人たちは全員仏教徒だろう」となったら、帰納になるのか？</p>
+</blockquote>
+</div>
+<div class="fragment fade-in">
+<blockquote>
+<p>演繹法でも当てはまらない場合があるのではないかと思いました。駒澤は仏教系の大学ですが、周囲の方と話した体感、仏教徒は多くないと思っています。</p>
+</blockquote>
+</div>
+<aside class="notes">
+<p>「全員仏教徒」</p>
+<ul>
+<li>帰納にならない</li>
+<li>演繹…一般から個別、帰納…個別から一般</li>
+<li>「この教室には仏教徒が多い」（個別）→「駒澤には仏教徒が多い」（一般）なら帰納</li>
+</ul>
+<p>「仏教徒は多くない」</p>
+<ul>
+<li>確かにこの推論が当てはまらないのはその通り</li>
+<li>大前提に飛躍がある
+<ul>
+<li>大前提「仏教系大学ならば仏教徒が多い」</li>
+<li>小前提「ここは仏教系の駒澤大学の教室である」</li>
+<li>結論「この教室には仏教徒が多い」</li>
+<li>これが間違っていたら成り立たない</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="先週のrpより-46" class="slide level2">
+<h2>先週のRPより (4/6)</h2>
+<div class="fragment fade-in">
+<blockquote>
+<p>今回の講義よりカール・ポパーによる反証主義のところで帰無仮説の反証の批判が厳しすぎるという点が未だによく分からないので，そこの点も踏まえて理解できるように努めたいと考えた</p>
+</blockquote>
+</div>
+<div class="fragment fade-in">
+<blockquote>
+<p>反証主義がないと、仮説は確証することはできないことはわかったが、これでは、科学や哲学の発展につながらないのではないかと感じた。</p>
+</blockquote>
+</div>
+<aside class="notes">
+<p>反証可能性は難しいながらも興味を持ってくれた人が多数</p>
+<ul>
+<li>「厳しすぎる」→ファイアアーベント「発展につながらない」
+<ul>
+<li>新薬の実験…飲んだ人の間でガンが治った</li>
+<li>反証主義…「新薬に効果はないとは言えない」で止まる→面白くない</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="先週のrpより-56" class="slide level2">
+<h2>先週のRPより (5/6)</h2>
+<div class="fragment fade-in">
+<blockquote>
+<p>チャットは匿名にしていただきたいです。</p>
+</blockquote>
+</div>
+<div class="fragment fade-in">
+<blockquote>
+<p>グループワークが今回は思ったより少なかったので、次回は増やしてほしいと思いました。</p>
+</blockquote>
+<blockquote>
+<p>授業のクイズのやつで友達と意見が食い違った時の話し合いが今回はとても充実していた。クイズ形式のものを今後も増やしてほしい</p>
+</blockquote>
+</div>
+<aside class="notes">
+<p>チャット</p>
+<ul>
+<li>今後は匿名化する。不慣れで失礼</li>
+<li>自信はない（学生モードで見る）</li>
+</ul>
+<p>授業の方法</p>
+<ul>
+<li>なるべくグループワークやクイズなどでインタラクションは増やすつもり</li>
+<li>ただしこれらは「目的」ではなく「手段」であることに注意
+<ul>
+<li>先週は理解することに重点を置いたため、グループワークが少なくなった</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="先週のrpより-66" class="slide level2">
+<h2>先週のRPより (6/6)</h2>
+<div class="fragment fade-in">
+<blockquote>
+<p>共変関係について、二つのものが一緒に変化することで関係性を考えるという点が興味深かった。ただ、一緒に変化していても必ず原因と結果とは限らないため、データをそのまま信じることはあまり良くないと感じた</p>
+</blockquote>
+</div>
+<aside class="notes">
+<p>共変関係</p>
+<ul>
+<li>共変関係があるからと言って因果関係とは限らない</li>
+<li>今日学ぶ「原因の時間的先行」の話</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="本日の目的と到達目標" class="slide level2">
 <h2>本日の目的と到達目標</h2>
@@ -198,7 +440,20 @@
 <section>
 <section id="共変関係と因果関係" class="title-slide slide level1 center">
 <h1>共変関係と因果関係</h1>
-
+<aside class="notes">
+<p>ここまで20分</p>
+<p>目標10分</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="復習3条件と共変関係" class="slide level2">
 <h2>復習：3条件と共変関係</h2>
@@ -225,9 +480,10 @@
 <h2>質問</h2>
 <p>駒大生100人へのアンケート調査から、「洋画を見る時間が長い人ほどTOEICの点数が高い」という関係が観測されました。</p>
 <p>この結果から、「TOEICの点数を上げるためには洋画を見るべきだ」と結論づけてもよいでしょうか。</p>
-<p><a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=f33691a80a0efd027326483d679a0772&amp;page=1">WebClassアンケート</a>で回答してください。</p>
-<p><img data-src="figs/07_causalpriority_surveyQR.png" style="width:30.0%"></p>
+<p><a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=0a9de31eae63a73c513a2353d90bd20c">WebClassチャット</a>で回答してください。</p>
+<p><img data-src="figs/07_causalpriority_chatQR.png" style="width:30.0%"></p>
 <aside class="notes">
+<p>チャット閲覧は学生モードで？</p>
 <p>共変関係≠相関関係</p>
 <ul>
 <li>「洋画視聴時間→TOEICの点数」ではないかもしれない
@@ -251,7 +507,20 @@
 <section>
 <section id="内生性" class="title-slide slide level1 center">
 <h1>内生性</h1>
-
+<aside class="notes">
+<p>ここまで30分</p>
+<p>目標15分</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="内生性-endogeneity" class="slide level2">
 <h2>内生性 (endogeneity)</h2>
@@ -273,6 +542,19 @@
 </ul></li>
 </ul>
 </div>
+<aside class="notes">
+<p>「独立変数と誤差項の相関」はあまり気にしなくてもいいと注意喚起</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="内生性の原因" class="slide level2">
 <h2>内生性の原因</h2>
@@ -285,7 +567,6 @@
 <p>Q. 観測誤差については第5回に学びました。2つの種類があったと思いますが、それは何と何ですか？</p>
 </div>
 <aside class="notes">
-<p>「独立変数と誤差項の相関」はあまり気にしなくてもいいと注意喚起</p>
 <p>問いかけ（測定誤差をめくる前） - 目的：測定誤差とは何かを思い出す - 質問「測定誤差については第5回に学びました。2つの種類があったと思いますが、それは何と何ですか？」 - 進行：0.5-1分考える→一人当てる</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
@@ -339,7 +620,21 @@
 <section>
 <section id="同時性" class="title-slide slide level1 center">
 <h1>同時性</h1>
-
+<aside class="notes">
+<p>ここまで45分</p>
+<p>休憩5分</p>
+<p>目標15分</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="同時性-simultaneity" class="slide level2">
 <h2>同時性 (simultaneity)</h2>
@@ -444,7 +739,20 @@
 <section>
 <section id="同時性への対処" class="title-slide slide level1 center">
 <h1>同時性への対処</h1>
-
+<aside class="notes">
+<p>ここまで65分（1:05:00）</p>
+<p>目標20分</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="think-pair-share--10分" class="slide level2">
 <h2>Think-pair-share (-10分)</h2>
@@ -453,7 +761,7 @@
 <ol type="1">
 <li><strong>Think</strong> (1分)…1人で考える</li>
 <li><strong>Pair</strong> (2-3分)…ペアで考えたことを共有</li>
-<li><strong>Share</strong> (2-3分)…全体に共有（<a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=34c99c9dd563ae27bc4649ec82213733">WebClassチャット</a>）</li>
+<li><strong>Share</strong> (2-3分)…全体に共有（<a href="https://webclass.komazawa-u.ac.jp/webclass/login.php?id=0a9de31eae63a73c513a2353d90bd20c">WebClassチャット</a>）</li>
 </ol>
 <p><img data-src="figs/07_causalpriority_chatQR.png" style="width:20.0%"></p>
 </section>
@@ -490,7 +798,20 @@
 <section>
 <section id="まとめ" class="title-slide slide level1 center">
 <h1>まとめ</h1>
-
+<aside class="notes">
+<p>ここまで85分（1:05:00）</p>
+<p>目標5分</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="本日の目的と到達目標-1" class="slide level2">
 <h2>本日の目的と到達目標</h2>
