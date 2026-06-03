@@ -1,0 +1,93 @@
+---
+title: "09/バークソンのパラドックス"
+date: 2026/6/16
+
+modified-date: today
+
+format: 
+  revealjs:
+    footer: "バークソンのパラドックス"
+    mermaid:
+      theme: neutral
+
+metadata-files: 
+  - "style/slide.yml"
+---
+
+```{r set-up}
+set.seed(19940309) # Someone's birthday
+pacman::p_load(tidyverse,
+               rlang,
+               pak)
+# Load the package(s)
+theme_set(theme_bw()) # Set ggplot theme
+```
+
+## バークソンのパラドックス
+#### Berkson's paradox
+
+特定の条件でデータを抽出すると無関係な変数同士に相関が見出されてしまうという問題
+
+::: {.fragment .fade-in}
+俳優の見た目と演技力
+
+::: {.incremental}
+- 「**イケメン俳優は演技が下手、演技派はかっこよくない**」という観察
+- 演技力と見た目には負の相関がある？→見せかけの相関
+   - 観察される俳優→見た目あるいは演技力が一定水準以上
+   - イケメンでも演技派でもない人は観察されない
+
+:::
+:::
+
+## 見た目と演技力の関係
+```{r actor-setup}
+#| include: false
+
+data_2 <- tibble(
+  x        = rnorm(1000, mean = 0.5, sd = 0.15),
+  y        = rnorm(1000, mean = 0.5, sd = 0.15)
+)
+
+```
+
+::: {.panel-tabset}
+#### 男性全体
+```{r actor-all}
+ggplot() +
+  geom_point(aes(x = x, y = y),
+             data = data_2) +
+  geom_smooth(aes(x = x, y = y),
+              method = "lm",
+              se = FALSE,
+              data = data_2) +
+    theme(axis.text.x = element_blank(),
+    axis.text.y = element_blank()) +
+  xlim(0, 1) + ylim(0, 1) +
+  labs(x = "見た目",
+       y = "演技力")
+```
+
+#### 俳優
+```{r actor-onlu}
+ggplot() +
+  geom_point(aes(x = x, y = y),
+             alpha = 0.05,
+             data = data_2) +
+    geom_point(aes(x = x, y = y),
+             data = subset(data_2,
+                           x >= 0.8 | y >= 0.8)) +
+  geom_smooth(aes(x = x, y = y),
+              method = "lm",
+              se = FALSE,
+              data = subset(data_2,
+                           x >= 0.8 | y >= 0.8)) +
+  theme(axis.text.x = element_blank(),
+        axis.text.y = element_blank()) +
+  xlim(0, 1) + ylim(0, 1) +
+  labs(x = "見た目",
+       y = "演技力")
+```
+
+:::
+

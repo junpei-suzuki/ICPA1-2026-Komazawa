@@ -324,7 +324,7 @@ Q. 観測誤差については第5回に学びました。2つの種類があっ
 :::
 
 ## 洋画視聴とTOEICの点数の関係
-```{r}
+```{r movie&toeic}
 data_1 <- tibble(
   x        = rnorm(100, mean = 4, sd = 1),
   x_error  = x + rnorm(100, mean = 0, sd = 1),

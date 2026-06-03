@@ -1,0 +1,19 @@
+---
+title: "09/単位／選択／観察"
+modified-date: today
+format: html
+abstract:
+  これまで学んできたことを踏まえ、因果推論でさらに発生する問題について考察する。分析単位や観察対象の選択などの問題について深く検討し、ふさわしい分析対象の選択について理解する。
+---
+
+### 準備学習
+- [ ] 【事前】教科書（久米8章）を読む。
+- [ ] 【事後】授業資料を見直し、目標到達をセルフチェック
+- [ ] 【事後】WebClass上でのリアクションペーパー入力（金曜日まで）
+- [ ] 【事後・任意】補足ビデオ「バークソンのパラドックス」の視聴（WebClass上）
+
+### スライド①：授業用
+{{< revealjs file="09_unit-selection-observation_slide.html" height="900px" class="ratio ratio-4x3" full-screen-link="true">}}
+
+### スライド②：補足ビデオ用
+{{< revealjs file="09_Berkson_slide.html" height="900px" class="ratio ratio-4x3" full-screen-link="true">}}

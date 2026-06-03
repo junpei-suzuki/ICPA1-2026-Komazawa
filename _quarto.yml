@@ -38,6 +38,8 @@ website:
           href: 07_causalpriority.qmd
         - text: "08/変数の統制"
           href: 08_control.qmd
+        - text: "09/単位／選択／観察"
+          href: 09_unit-selection-observation.qmd
       - section: 事例分析
       - section: 政治学と方法論
       - section: グループワーク
