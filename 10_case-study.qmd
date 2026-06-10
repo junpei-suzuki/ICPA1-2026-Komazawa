@@ -1,0 +1,16 @@
+---
+title: "10/比較事例分析"
+modified-date: today
+format: html
+abstract:
+  少数の事例から因果関係を検証する方法を学ぶ。量的研究と質的研究それぞれの利点と限界を議論するとともに、質的研究の枠組みとして「一致法」と「差異法」を学び、実際に自分で行ってみる。
+---
+
+### 準備学習
+- [ ] 【事前】教科書（久米9章）を読む。
+- [ ] 【事後】授業資料を見直し、目標到達をセルフチェック
+- [ ] 【事後】WebClass上でのリアクションペーパー入力（金曜日まで）
+
+### スライド
+{{< revealjs file="10_case-study_slide.html" height="900px" class="ratio ratio-4x3" full-screen-link="true">}}
+
