@@ -168,11 +168,148 @@
 <section>
 <section id="はじめに" class="title-slide slide level1 center">
 <h1>はじめに</h1>
-
+<aside class="notes">
+<p>目標15分</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="先週のrpより" class="slide level2">
-<h2>先週のRPより</h2>
-<p>TBD</p>
+<section id="先週のrpより-13" class="slide level2 scrollable">
+<h2><a href="https://mainichi.jp/articles/20211117/k00/00m/040/199000c">先週のRPより</a> (1/3)</h2>
+<blockquote>
+<p>このデータのみでは「コロナワクチンは危険である」を推論することはできないと思う。1325人というのはワクチン接種後に死亡した人数であり、コロナワクチンだけが原因とは限らないと思う。例えば元々基礎疾患を持っている接種者も多く含まれているので、たまたまその期間に基礎疾患が重症化して死亡した場合も多く含まれるからである。また、何回摂取したのかという母数がわからないこと、ワクチンを打たなかった場合の死亡率などの比較対象がわからないことからもそのように推論することはできないと思う。現実と反事実、つまりその人がワクチンを摂取した場合の死亡率と摂取しなかった場合の死亡率を同時に検証することができないことが根本問題であるので、ランダム化対照実験を利用して接種群とプラセボ群にランダムに割り付けることで、平均的には背景要因（年齢・基礎疾患など）を揃え、「接種したかどうか」だけが違う状況を作り、両群の死亡率を比較し、因果効果を推定するべであると思う。</p>
+</blockquote>
+<aside class="notes">
+<p>模範解答に近い</p>
+<ul>
+<li>「できない」という結論
+<ul>
+<li>良い構成：その後に根拠が述べられている</li>
+</ul></li>
+<li>交絡変数の存在
+<ul>
+<li>独立変数：接種する、従属変数：死</li>
+<li>交絡変数：基礎疾患の有無、年齢</li>
+</ul></li>
+<li>交絡変数を除くために、RCTを行う必要
+<ul>
+<li>あらゆる国で何度もRCTが実際に行われている</li>
+<li>非接種群と接種群で死亡率に差はないことが明らかになっている</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="先週のrpより-23" class="slide level2">
+<h2>先週のRPより (2/3)</h2>
+<blockquote>
+<p>回帰分析、tppへの態度などの表と計算の仕方がよく理解できませんでした。</p>
+</blockquote>
+<div class="fragment fade-in">
+<p><span class="math display">\[
+TPPへの態度 = 3.413 + 0.271 \times 性別 - 0.018 \times 年齢 \\ - 0.076 \times 学歴
+\]</span></p>
+<ul>
+<li>TPPへの態度…賛成=1〜反対=5</li>
+<li>性別…男性=1、女性=2</li>
+<li>年齢…実年齢</li>
+<li>学歴…中卒以下=1、高卒=2、専門・短大卒=3、大卒以上=4</li>
+</ul>
+</div>
+<aside class="notes">
+<p>p.146の図を回帰式に置き換えるとこう</p>
+<ul>
+<li>計算自体はPCが行なっている（最小二乗法）
+<ul>
+<li>アンケートでTPPに賛成か反対かを5点尺度で聞く</li>
+<li>TPPへの態度を従属変数、他を独立変数として投入して計算</li>
+<li>推定式が出てくる→独立変数の値を実際に投入すると、TPPへの態度が予測できる</li>
+</ul></li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</section>
+<section id="先週のrpより-33" class="slide level2 scrollable">
+<h2>先週のRPより (3/3)</h2>
+<blockquote>
+<p>もう少しマイクの音を上げてほしい。</p>
+</blockquote>
+<blockquote>
+<p>後ろの席のひとがうるさいです</p>
+</blockquote>
+<div class="fragment fade-in">
+<blockquote>
+<p>この前のようなプリントを使ってのグループワークをして欲しいです。</p>
+</blockquote>
+<blockquote>
+<p>最近はチャットとかクイズとか活用多くしていて他の人の意見とかも見れてすごい分かりやすいからこれからもたくさん活用していってくれると嬉しいです</p>
+</blockquote>
+</div>
+<div class="fragment fade-in">
+<blockquote>
+<p>グループ発表では何をするのでしょうか?統計的因果推論など、実際に観察したのを発表するのでしょうか?</p>
+</blockquote>
+</div>
+<aside class="notes">
+<p>受講態度について</p>
+<ul>
+<li>マイクはもう少し大きくします</li>
+<li>受講するときも協力してほしい</li>
+</ul>
+<p>プリントとチャット</p>
+<ul>
+<li>あくまで目的に応じて最適なものを選んでいる
+<ul>
+<li>来週ワークシートはやるかも</li>
+</ul></li>
+<li>ワークシートを紙で印刷するのも大変
+<ul>
+<li>印刷カードの回数にも制限がある</li>
+</ul></li>
+</ul>
+<p>グループ発表</p>
+<ul>
+<li>考え中なのでもう少し待ってほしい</li>
+<li>発表ではなく、グループレポートを考えている</li>
+<li>レポートは相互評価</li>
+</ul>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="本日の目的と到達目標" class="slide level2">
 <h2>本日の目的と到達目標</h2>
@@ -198,10 +335,23 @@
 <section>
 <section id="理論仮説と作業仮説" class="title-slide slide level1 center">
 <h1>理論仮説と作業仮説</h1>
-
+<aside class="notes">
+<p>ここまで15分</p>
+<p>目標20分</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
-<section id="復習仮説と説明" class="slide level2">
-<h2>復習：仮説と説明</h2>
+<section id="復習説明と仮説" class="slide level2">
+<h2>復習：説明と仮説</h2>
 <div class="fragment fade-in">
 <h4 id="説明-explanation"><strong>説明</strong> (explanation)</h4>
 <p>なぜを明らかにすること</p>
@@ -317,7 +467,20 @@
 <section>
 <section id="分析の単位" class="title-slide slide level1 center">
 <h1>分析の単位</h1>
-
+<aside class="notes">
+<p>ここまで35分</p>
+<p>目標15分</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="分析の単位-unit-of-analysis" class="slide level2">
 <h2>分析の単位 (unit of analysis)</h2>
@@ -480,7 +643,21 @@
 <section>
 <section id="選択のバイアス" class="title-slide slide level1 center">
 <h1>選択のバイアス</h1>
-
+<aside class="notes">
+<p>ここまで50分</p>
+<p>休憩5分</p>
+<p>目標15分</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="クイズ-1" class="slide level2">
 <h2>クイズ</h2>
@@ -586,7 +763,20 @@
 <section>
 <section id="観察の範囲" class="title-slide slide level1 center">
 <h1>観察の範囲</h1>
-
+<aside class="notes">
+<p>ここまで70分（1:10:00）</p>
+<p>目標15分</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="観察の範囲ユニバース" class="slide level2">
 <h2>観察の範囲（ユニバース）</h2>
@@ -599,11 +789,11 @@
 <ul>
 <li class="fragment">女性労働参加と出生率
 <ul>
-<li class="fragment">謎の13カ国→OECD全体</li>
+<li class="fragment">謎の13カ国→OECD全体 (p.176)</li>
 </ul></li>
 <li class="fragment">労働抑圧と経済発展
 <ul>
-<li class="fragment">アジア→途上国全体</li>
+<li class="fragment">アジア→途上国全体 (pp.177-178)</li>
 </ul></li>
 </ul>
 </div>
@@ -652,7 +842,20 @@
 <section>
 <section id="まとめ" class="title-slide slide level1 center">
 <h1>まとめ</h1>
-
+<aside class="notes">
+<p>ここまで85分（1:25:00）</p>
+<p>目標5分</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 </section>
 <section id="本日の目的と到達目標-1" class="slide level2">
 <h2>本日の目的と到達目標</h2>
