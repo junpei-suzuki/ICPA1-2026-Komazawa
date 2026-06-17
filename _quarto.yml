@@ -44,6 +44,8 @@ website:
         contents:
         - text: "10/比較事例分析"
           href: 10_case-study.qmd
+        - text: "11/単一事例分析"
+          href: 11_single-case.qmd
       - section: 政治学と方法論
       - section: グループワーク
       - section: "付録"
