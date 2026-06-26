@@ -46,6 +46,8 @@ website:
           href: 10_case-study.qmd
         - text: "11/単一事例分析"
           href: 11_single-case.qmd
+      - text: "12/現実と方法論"
+        href: 12_reality.qmd
       - section: 政治学と方法論
       - section: グループワーク
       - section: "付録"
