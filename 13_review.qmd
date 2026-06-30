@@ -1,0 +1,14 @@
+---
+title: "13/学んだことのまとめ"
+modified-date: today
+format: html
+abstract:
+  グループワークによるスライド作成とギャラリーウォークを行い、授業で学んだことを思い出して整理し定着を図る。
+---
+
+### 準備学習
+- [ ] 【事前】これまでの授業内容を見直し、わからないことや気なる点を書き留めておく。
+- [ ] 【事後】政治現象や社会現象について、自分が検証したい仮説を2〜3個書き留めておく。
+
+### スライド
+{{< revealjs file="13_review_slide.html" height="900px" class="ratio ratio-4x3" full-screen-link="true">}}

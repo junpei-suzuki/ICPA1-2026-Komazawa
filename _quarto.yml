@@ -46,10 +46,14 @@ website:
           href: 10_case-study.qmd
         - text: "11/単一事例分析"
           href: 11_single-case.qmd
-      - text: "12/現実と方法論"
-        href: 12_reality.qmd
       - section: 政治学と方法論
+        contents:
+        - text: "12/現実と方法論"
+          href: 12_reality.qmd
       - section: グループワーク
+        contents:
+        - text: "13/学んだことのまとめ"
+          href: 13_review.qmd
       - section: "付録"
         contents:
         - text: "付録01/スライドの保存方法"
