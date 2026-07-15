@@ -50,10 +50,12 @@ website:
         contents:
         - text: "12/現実と方法論"
           href: 12_reality.qmd
-      - section: グループワーク
+      - section: まとめ
         contents:
         - text: "13/学んだことのまとめ"
           href: 13_review.qmd
+        - text: "14/レポート準備"
+          href: 14_report.qmd         
       - section: "付録"
         contents:
         - text: "付録01/スライドの保存方法"
