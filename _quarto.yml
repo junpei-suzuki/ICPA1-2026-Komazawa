@@ -56,6 +56,8 @@ website:
           href: 13_review.qmd
         - text: "14/レポート準備"
           href: 14_report.qmd         
+        - text: "15/レポート執筆と相互採点"
+          href: 15_peer-review.qmd     
       - section: "付録"
         contents:
         - text: "付録01/スライドの保存方法"
